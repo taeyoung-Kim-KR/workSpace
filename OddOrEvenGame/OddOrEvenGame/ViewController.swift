@@ -5,13 +5,18 @@
 //  Created by 김태영 on 2022/01/03.
 //
 
-
+//#1
 // 1. 컴퓨터가 1에서 10까지 랜덤으로 숫자를 선택합니다.
 // 2. 사용자는 가진 구슬개수를 걸고 홀짝 중의 하나를 선택한다.
 // 3. 결과값이 화면에 보여진다.
 
+//#2
+//1. 음악파일을 추가한다.
+//2. AVFoundation 프레임워크 추가해보기.
+//3. AVAudioPlayer 객체를 만들어 음악을 실행시켜본다.
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
 
@@ -20,6 +25,8 @@ class ViewController: UIViewController {
     @IBOutlet var resultLabel: UILabel!
     @IBOutlet var imageContainer: UIView!
     @IBOutlet var fistImage: UIImageView!
+    
+    var player: AVAudioPlayer?
     
     var comBallCount: Int = 20
     var userBallCount: Int = 20
@@ -32,10 +39,35 @@ class ViewController: UIViewController {
         userBallCountLabel.text = String(userBallCount)
         self.imageContainer.isHidden = true
         
+        self.play(fileName: "intro")
     }
+    
+    func play(fileName: String) {
+        let filePath = Bundle.main.url(forResource: fileName, withExtension: "mp3")
+
+        guard let path = filePath else {
+            return
+        }
+//        self.player = try? AVAudioPlayer(contentsOf: path)
+        do {
+            self.player = try AVAudioPlayer(contentsOf: path)
+            
+            guard let soundplayer = self.player else {
+                return
+            }
+            soundplayer.prepareToPlay()
+            soundplayer.play()
+        } catch let error {
+            print("\(error.localizedDescription)")
+        }
+    }
+    
 
     @IBAction func gameStartPressed(_ sender: Any) {
         self.imageContainer.isHidden = false
+        
+        
+        self.play(fileName: "gamestart")
         
         UIView.animate(withDuration: 3.0) {
             self.fistImage.transform = CGAffineTransform(scaleX: 5, y: 5)
@@ -51,8 +83,8 @@ class ViewController: UIViewController {
         let alert = UIAlertController.init(title: "GAME START", message: "홀 짝을 선택해주세요.", preferredStyle: .alert)
 
         let oddBtn = UIAlertAction.init(title: "홀", style: .default) { _ in
-            print("홀버튼을 클릭했습니다.")
-
+    
+            self.play(fileName: "click")
             guard let input = alert.textFields?.first?.text else {
                 return
             }
@@ -65,7 +97,7 @@ class ViewController: UIViewController {
         }
 
         let evenBtn = UIAlertAction.init(title: "짝", style: .default) { _ in
-            print("짝 버튼을 클릭했습니다.")
+            self.play(fileName: "click")
 
             guard let input = alert.textFields?.first?.text else {
                 return
