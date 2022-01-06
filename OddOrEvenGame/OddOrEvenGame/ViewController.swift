@@ -18,7 +18,8 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SettingDelegate {
+    
 
     @IBOutlet var computerBallCountLabel: UILabel!
     @IBOutlet var userBallCountLabel: UILabel!
@@ -77,6 +78,15 @@ class ViewController: UIViewController {
             self.showAlert()
         }
       
+    }
+    
+    
+    @IBAction func settingBtnPressed(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let settingVC = storyboard.instantiateViewController(identifier: "SettingViewController") as! SettingViewController
+        settingVC.settingDelegate = self
+        settingVC.modalPresentationStyle = .fullScreen
+        self.present(settingVC, animated: true, completion: nil)
     }
     
     func showAlert() {
@@ -170,7 +180,10 @@ class ViewController: UIViewController {
     func getRandom() -> Int {
         return Int(arc4random_uniform(10) + 1)
     }
-    
+    func getBallCount(ballsCount: Int) {
+        self.userBallCountLabel.text = "\(ballsCount)"
+        self.computerBallCountLabel.text = "\(ballsCount)"
+    }
 }
 
 

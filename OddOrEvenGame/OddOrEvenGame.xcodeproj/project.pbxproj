@@ -16,6 +16,7 @@
 		B4E5BAA9278333E800CB311A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4E5BAA7278333E800CB311A /* Main.storyboard */; };
 		B4E5BAAB278333E900CB311A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4E5BAAA278333E900CB311A /* Assets.xcassets */; };
 		B4E5BAAE278333E900CB311A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4E5BAAC278333E900CB311A /* LaunchScreen.storyboard */; };
+		B4E70110278739DB00343F9D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E7010F278739DB00343F9D /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B4E5BAAA278333E900CB311A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4E5BAAD278333E900CB311A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4E5BAAF278333E900CB311A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4E7010F278739DB00343F9D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				B4E5BAA1278333E800CB311A /* AppDelegate.swift */,
 				B4E5BAA3278333E800CB311A /* SceneDelegate.swift */,
 				B4E5BAA5278333E800CB311A /* ViewController.swift */,
+				B4E7010F278739DB00343F9D /* SettingViewController.swift */,
 				B4E5BAA7278333E800CB311A /* Main.storyboard */,
 				B4E5BAAA278333E900CB311A /* Assets.xcassets */,
 				B4E5BAAC278333E900CB311A /* LaunchScreen.storyboard */,
@@ -160,6 +163,7 @@
 				B4E5BAA6278333E800CB311A /* ViewController.swift in Sources */,
 				B4E5BAA2278333E800CB311A /* AppDelegate.swift in Sources */,
 				B4E5BAA4278333E800CB311A /* SceneDelegate.swift in Sources */,
+				B4E70110278739DB00343F9D /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
